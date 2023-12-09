@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import { Task } from "./Task"
 
 function App() {
 
@@ -20,10 +21,7 @@ function App() {
     <>
       {tasks.map(todo => {
         return (
-          <div key={todo.id}>
-            <input type="checkbox" name={todo.title} id={todo.id} checked={todo.completed}/>
-            <strong>{todo.title}</strong>
-          </div>
+          <Task todo={todo} key={todo.id}/>
         )
       })}
     </>
