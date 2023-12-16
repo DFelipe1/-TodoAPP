@@ -63,21 +63,6 @@ button {
   gap: 28px;
 }
 
-.content-void {
-  width: 100%;
-  min-height: 200px;
-  display: grid;
-  place-content: center;
-  
-}
-
-.content-void span {
-  width: fit-content;
-  height: fit-content;
-  font-size: 16px;
-  text-align: center;
-  color: #5B5E7E;
-}
 
 @media (prefers-color-scheme: light) {
   :root {

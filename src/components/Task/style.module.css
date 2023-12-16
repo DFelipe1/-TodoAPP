@@ -72,6 +72,22 @@
     gap: 16px;
 }
 
+.contentVoid {
+    width: 100%;
+    min-height: 200px;
+    display: grid;
+    place-content: center;
+    
+  }
+  
+  .contentVoid span {
+    width: fit-content;
+    height: fit-content;
+    font-size: 16px;
+    text-align: center;
+    color: #5B5E7E;
+  }
+
 .group footer span {
     color: #5B5E7E;
     font-size: 14px;
@@ -90,7 +106,7 @@
     letter-spacing: -0.194px;
 }
 
-.action[data-active] {
+.action[data-active="true"] {
     color: #3A7CFD;
 }
 
