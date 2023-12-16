@@ -1,0 +1,107 @@
+.task {
+    width: 100%;
+    padding: 20px 24px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-bottom: 1px solid #393A4B;
+}
+
+.input {
+    appearance: none;
+    /* min-width: 18px;
+    min-height: 18px; */
+    padding: 1px;
+    border-radius: 100%;
+    border: 1px solid #393A4B;
+    background: transparent;
+    cursor: pointer;
+}
+
+.input::after {
+    content:'';
+    display: block;
+    min-width: 20px;
+    min-height: 20px;
+    border-radius: 100%;
+    background-color: #25273D;
+    transition: 0.5s;
+}
+
+
+.task:hover .input {
+    background: linear-gradient(130deg, #55DDFF, #C058F3);
+}
+
+.input:checked::after {
+    content:'✔';
+    text-align: center;
+    background: linear-gradient(130deg, #55DDFF, #C058F3);
+}
+
+.title {
+    color: #C8CBE7;
+    font-size: 18px;
+    font-weight: 400;
+    letter-spacing: -0.25px;
+    transition: 0.5s;
+}
+
+:where(input:checked) + .title {
+    color: #4D5067;
+    text-decoration: line-through;
+}
+
+
+.group {
+    /* position: relative; */
+    width: 100%;
+    border-radius: 5px;
+    background: #25273D;
+    box-shadow: 0px 35px 50px -15px rgba(0, 0, 0, 0.50);
+}
+
+.group footer {
+    /* position: absolute;
+    bottom: 0; */
+    width: 100%;
+    padding: 16px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+}
+
+.group footer span {
+    color: #5B5E7E;
+    font-size: 14px;
+    letter-spacing: -0.194px;
+}
+
+.group footer div {
+    display: flex;
+    gap: 18px;
+}
+
+.action {
+    color: #5B5E7E;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: -0.194px;
+}
+
+.action[data-active] {
+    color: #3A7CFD;
+}
+
+.button {
+    padding: 8px 12px;
+    background-color: #27BE51;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.button:hover {
+    filter: brightness(0.9);
+}

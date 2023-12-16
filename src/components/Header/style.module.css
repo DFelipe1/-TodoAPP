@@ -1,0 +1,32 @@
+.header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 48px 0;
+}
+
+.logo {
+    font-size: 36px;
+    font-weight: 700;
+    letter-spacing: 15px;
+}
+
+.themeMode {
+    width: 30px;
+    height: 30px;
+    border-radius: 100%;
+    padding: 2px;
+    transition: 0.4s;
+}
+
+.themeMode:hover {
+    cursor: pointer;
+    transform: scale(0.9);
+    filter: brightness(0.9);
+}
+
+.themeMode img {
+    width: 100%;
+    object-fit: cover;
+}

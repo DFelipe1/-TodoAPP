@@ -1,5 +1,11 @@
 import { useEffect, useState } from "react"
-import { Task } from "./Task"
+import { GroupTask, Task } from "./components/Task"
+import { Header } from "./components/Header"
+import { Footer } from "./components/Footer"
+import { Cover } from "./components/Cover"
+import { Find } from "./components/Find"
+
+
 
 function App() {
 
@@ -18,13 +24,32 @@ function App() {
   
 
   return (
-    <>
-      {tasks.map(todo => {
-        return (
-          <Task todo={todo} key={todo.id}/>
-        )
-      })}
-    </>
+    <div className="container">
+      <div className="content">
+        <Header/>
+        <main className="main">
+          <Find/>
+          <GroupTask>
+            {
+              tasks.length == 0 ? (
+                <div className='content-void'>
+                    <span>Create your new task!</span>
+                </div>
+              ) : (
+                tasks.map(todo => {
+                  return (
+                    <Task todo={todo} key={todo.id}/>
+                  )
+                })
+              )
+            }
+          </GroupTask>
+        </main>
+
+        <Footer/>
+      </div>
+      <Cover/>
+    </div>
     
   )
 }
