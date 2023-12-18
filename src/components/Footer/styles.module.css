@@ -4,7 +4,7 @@
     width: 100%;
     text-align: center;
     margin-top: 48px;
-    color: #9495A5;
+    color: var(--font-color-alt);
     font-size: 14px;
     font-weight: 400;
     letter-spacing: -0.194px;
