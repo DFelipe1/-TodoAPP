@@ -1,3 +1,49 @@
+.group header {
+    /* position: absolute;
+    bottom: 0; */
+    width: 100%;
+    padding: 16px 24px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    border-bottom: 1px solid #393A4B;
+}
+
+.group header span {
+    color: #5B5E7E;
+    font-size: 14px;
+    letter-spacing: -0.194px;
+}
+
+.group header div {
+    display: flex;
+    gap: 18px;
+}
+
+.action {
+    color: #5B5E7E;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: -0.194px;
+}
+
+.action[data-active="true"] {
+    color: #3A7CFD;
+}
+
+.button {
+    padding: 8px 12px;
+    background-color: #27BE51;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.button:hover {
+    filter: brightness(0.9);
+}
+
 .task {
     width: 100%;
     padding: 20px 24px;
@@ -61,63 +107,43 @@
     box-shadow: 0px 35px 50px -15px rgba(0, 0, 0, 0.50);
 }
 
-.group footer {
-    /* position: absolute;
-    bottom: 0; */
-    width: 100%;
-    padding: 16px 24px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 16px;
-}
-
 .contentVoid {
     width: 100%;
     min-height: 200px;
     display: grid;
     place-content: center;
-    
-  }
+
+}
   
-  .contentVoid span {
+.contentVoid span {
     width: fit-content;
     height: fit-content;
     font-size: 16px;
     text-align: center;
     color: #5B5E7E;
-  }
-
-.group footer span {
-    color: #5B5E7E;
-    font-size: 14px;
-    letter-spacing: -0.194px;
 }
 
-.group footer div {
+.controlers {
+    width: 100%;
     display: flex;
-    gap: 18px;
-}
-
-.action {
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 24px;
     color: #5B5E7E;
-    font-size: 14px;
-    font-weight: 700;
-    letter-spacing: -0.194px;
 }
 
-.action[data-active="true"] {
+.controlers button {
+    color: #5B5E7E;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.controlers button:hover {
     color: #3A7CFD;
 }
 
-.button {
-    padding: 8px 12px;
-    background-color: #27BE51;
-    cursor: pointer;
-    border-radius: 5px;
-    font-size: 14px;
-}
-
-.button:hover {
-    filter: brightness(0.9);
+.controlers span {
+    font-size: 16px;
+    font-weight: bold;
 }
