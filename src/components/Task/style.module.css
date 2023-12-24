@@ -1,57 +1,33 @@
-.group header {
-    /* position: absolute;
-    bottom: 0; */
-    width: 100%;
-    padding: 16px 24px 24px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 16px;
-    border-bottom: 1px solid var(--secundary);
-}
-
-.group header span {
-    color: var(--font-color-alt);
-    font-size: 14px;
-    letter-spacing: -0.194px;
-}
-
-.group header div {
-    display: flex;
-    gap: 18px;
-}
-
-.action {
-    color:var(--font-color-alt);
-    font-size: 14px;
-    font-weight: 700;
-    letter-spacing: -0.194px;
-}
-
-.action[data-active="true"] {
-    color: var(--font-color-active);
-}
-
-.button {
-    padding: 8px 12px;
-    background-color: #27BE51;
-    color: #fff;
-    cursor: pointer;
-    border-radius: 5px;
-    font-size: 14px;
-}
-
-.button:hover {
-    filter: brightness(0.9);
-}
-
 .task {
     width: 100%;
     padding: 20px 24px;
     display: flex;
     align-items: center;
-    gap: 8px;
+    justify-content: space-between;
     border-bottom: 1px solid var(--secundary);
+}
+
+.task .content {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.task .close {
+    visibility: hidden;
+    opacity: 0;
+    color: var(--font-color-alt);
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.close:hover {
+    filter: brightness(1.3);
+}
+
+.task:hover .close {
+    visibility: visible;
+    opacity: 1;
 }
 
 .input {
@@ -76,7 +52,6 @@
     transition: 0.5s;
 }
 
-
 .task:hover .input {
     background: linear-gradient(130deg, #55DDFF, #C058F3);
 }
@@ -98,116 +73,4 @@
 :where(input:checked) + .title {
     color: var(--font-color-task-completed);
     text-decoration: line-through;
-}
-
-
-.group {
-    /* position: relative; */
-    width: 100%;
-    border-radius: 5px;
-    background: var(--base);
-    box-shadow: 0px 35px 50px -15px rgba(0, 0, 0, 0.50);
-}
-
-.contentVoid {
-    width: 100%;
-    min-height: 200px;
-    display: grid;
-    place-content: center;
-
-}
-  
-.contentVoid span {
-    width: fit-content;
-    height: fit-content;
-    font-size: 16px;
-    text-align: center;
-    color: var(--font-color-alt);
-}
-
-.controlers {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 12px;
-    padding: 16px 24px;
-    color: var(--font-color-alt);
-}
-
-.controlers button {
-    color: var(--font-color-alt);
-    cursor: pointer;
-    transition: 0.2s;
-}
-
-.controlers button:hover {
-    color: #3A7CFD;
-}
-
-.controlers span {
-    font-size: 16px;
-    font-weight: bold;
-}
-
-/* Modal */
-
-.dialog {
-    width: fit-content;
-    min-width: 500px;
-    padding: 18px;
-    margin: auto;
-    background: var(--base);
-    border-radius: 8px;
-    border: none;
-    color: var(--font-color);
-    backdrop-filter: blur(10px);
-}
-
-.dialog form {
-    position: relative;
-}
-
-.dialog form .close {
-    position: absolute;
-    top: 0;
-    right: 0;
-    color: var(--font-color-alt);
-}
-
-.dialog form section{
-    margin: 16px 0;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-}
-
-.dialog form section h3 {
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 12px;
-}
-
-.dialog form section label {
-    font-size: 16px;
-    color: var(--font-color-alt);
-}
-
-.dialog form section input {
-    width: 100%;
-    background-color: var(--vase);
-    border-radius: 5px;
-    box-shadow: 0px 35px 50px -15px rgba(0, 0, 0, 0.50);
-    padding: 12px;
-    border: solid 1px var(--font-color-task-completed);
-    outline: none;
-    font-size: 16px;
-    font-family: 'Josefin Sans';
-    color: var(--font-color);
-}
-
-.dialog[open]:fullscreen {
-
-    background-color: rgba(0, 0, 0, 1);
-    
 }

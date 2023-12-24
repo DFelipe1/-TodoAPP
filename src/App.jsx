@@ -1,4 +1,4 @@
-import { GroupTask } from "./components/Task"
+import { GroupTask } from "./components/GroupTasks"
 import { Header } from "./components/Header"
 import { Footer } from "./components/Footer"
 import { Cover } from "./components/Cover"
