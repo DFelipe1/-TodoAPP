@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import styles from "./style.module.css";
-import { ChevronLeft, ChevronRight, ChevronsLeft, ChevronsRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, ChevronsLeft, ChevronsRight, X } from "lucide-react";
 import { TaskContext } from "../../contexts/tasks";
 import { data } from "../../service/data";
 
@@ -11,6 +11,10 @@ export function GroupTask() {
     const [ filter, setFilter ] = useState('all') // all || active || completed
     const [ page, setPage ] = useState(1)
     const [ listTasks, setListTasks ] = useState(tasks)
+    const [ isOpenModal, setIsOpenModal ] = useState(false)
+    const [ inputTitle, setInputTitle ] = useState('')
+    
+    console.log(tasks)
 
 
     useEffect(() => {
@@ -79,9 +83,39 @@ export function GroupTask() {
         setListTasks(pageneted)
     }
 
+    function add(title){
+        
+        const data = {
+            completed: false,
+            id: tasks.length + 1,
+            title: title,
+            userId: 1
+        }
+
+        setTasks([...tasks, data])
+        setInputTitle('')
+        setIsOpenModal(false)
+    }
 
     return (
         <div className={styles.group}>
+            <dialog className={styles.dialog} open={isOpenModal}>
+                <form method="dialog">
+                    <button className={styles.close} id="cancel" type="reset" onClick={() => setIsOpenModal(false)}>
+                        <X size={24} />
+                    </button>
+                    <section>
+                        <h3>Create your new task!</h3>
+
+                        <label>what is the name of the task</label>
+                        <input type="text" name="title" id="title" onChange={(e) => setInputTitle(e.target.value)} />
+                    </section>
+                    <menu>
+                        <button className={styles.button} type="submit" onClick={() => add(inputTitle)}>Confirm</button>
+                    </menu>
+                </form>
+            </dialog>
+
             <header>
                 <span>{tasks.length} tasks</span>
                 <div>
@@ -117,7 +151,7 @@ export function GroupTask() {
                     </button>
                 </div>
 
-                <button className={styles.button}>
+                <button className={styles.button} onClick={() => setIsOpenModal(true)}>
                     Create task
                 </button>
             </header>
