@@ -1,6 +1,6 @@
 import { useContext, useMemo, useState } from "react";
 import { TaskContext } from "../../contexts/tasks";
-import { data } from "../../service/data";
+import { getLocal } from "../../service/data";
 
 import { Search } from "lucide-react";
 
@@ -8,10 +8,10 @@ import styles from './styles.module.css';
 
 export function Find() {
 
-    const { setTasks } = useContext(TaskContext)
-
-    
+  const { setTasks } = useContext(TaskContext)
   const [search, setSearch] = useState('')
+
+  const data = getLocal()
 
   useMemo( () => {
     setTasks(data)

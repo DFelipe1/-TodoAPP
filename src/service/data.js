@@ -1,1 +1,9 @@
-export const data = await fetch('https://jsonplaceholder.typicode.com/todos').then(res => res.json())
+console.log(import.meta.env.VITE_LOCAL_STORAGE_KEY)
+
+export function getLocal() {
+    return JSON.parse(localStorage.getItem(import.meta.env.VITE_LOCAL_STORAGE_KEY)) || []
+}
+
+export function setLocal(tasks) {
+    localStorage.setItem(import.meta.env.VITE_LOCAL_STORAGE_KEY, JSON.stringify(tasks))
+}

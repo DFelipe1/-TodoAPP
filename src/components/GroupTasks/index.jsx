@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import styles from "./style.module.css";
 import { ChevronLeft, ChevronRight, ChevronsLeft, ChevronsRight, X } from "lucide-react";
 import { TaskContext } from "../../contexts/tasks";
-import { data } from "../../service/data";
+import { getLocal, setLocal } from "../../service/data";
 import { Task } from "../Task";
 
 export function GroupTask() {
@@ -14,6 +14,8 @@ export function GroupTask() {
     const [ listTasks, setListTasks ] = useState(tasks)
     const [ isOpenModal, setIsOpenModal ] = useState(false)
     const [ inputTitle, setInputTitle ] = useState('')
+
+    const data = getLocal()
     
 
 
@@ -85,22 +87,37 @@ export function GroupTask() {
 
     function add(title){
         
-        const newtask = {
+        const newTask = {
             completed: false,
-            id: tasks.length + 1,
+            id: crypto.randomUUID(),
             title: title,
-            userId: 1
         }
 
         setInputTitle(' ')
-        data.unshift(newtask)
+        setLocal([ newTask, ...tasks])
+        setTasks([ newTask, ...tasks])
         setIsOpenModal(false)
     }
 
     function remove(id) {
         const newArray = tasks.filter(task => task.id !== id)
 
+        setLocal(newArray)
         setTasks(newArray)
+    }
+
+    function toggleTaskCompleted(taskId) {
+        const newTasks = tasks.map(task => {
+            if(task.id === taskId) {
+                return {
+                    ...task,
+                    completed: !task.completed
+                }
+            }
+            return task
+        })
+        setLocal(newTasks)
+        setTasks(newTasks)
     }
 
     return (
@@ -169,7 +186,7 @@ export function GroupTask() {
               ) : (
                 listTasks.map(todo => {
                   return (
-                    <Task todo={todo} remove={(id) => remove(id)} key={todo.id}/>
+                    <Task todo={todo} remove={(id) => remove(id)} onToggle={(id) => toggleTaskCompleted(id)} key={todo.id}/>
                   )
                 })
               )
