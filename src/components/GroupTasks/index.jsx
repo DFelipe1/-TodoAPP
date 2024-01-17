@@ -4,6 +4,7 @@ import { ChevronLeft, ChevronRight, ChevronsLeft, ChevronsRight, X } from "lucid
 import { TaskContext } from "../../contexts/tasks";
 import { getLocal, setLocal } from "../../service/data";
 import { Task } from "../Task";
+import { DialogComponent } from "../Dialog";
 
 export function GroupTask() {
 
@@ -13,7 +14,6 @@ export function GroupTask() {
     const [ page, setPage ] = useState(1)
     const [ listTasks, setListTasks ] = useState(tasks)
     const [ isOpenModal, setIsOpenModal ] = useState(false)
-    const [ inputTitle, setInputTitle ] = useState('')
 
     const data = getLocal()
     
@@ -93,7 +93,6 @@ export function GroupTask() {
             title: title,
         }
 
-        setInputTitle(' ')
         setLocal([ newTask, ...tasks])
         setTasks([ newTask, ...tasks])
         setIsOpenModal(false)
@@ -122,23 +121,8 @@ export function GroupTask() {
 
     return (
         <div className={styles.group}>
-            <dialog className={styles.dialog} open={isOpenModal}>
-                <form method="dialog">
-                    <button className={styles.close} id="cancel" type="reset" onClick={() => setIsOpenModal(false)}>
-                        <X size={24} />
-                    </button>
-                    <section>
-                        <h3>Create your new task!</h3>
-
-                        <label>what is the name of the task</label>
-                        <input type="text" name="title" id="title" value={inputTitle} onChange={(e) => setInputTitle(e.target.value)} />
-                    </section>
-                    <menu>
-                        <button className={styles.button} type="submit" onClick={() => add(inputTitle)}>Confirm</button>
-                    </menu>
-                </form>
-            </dialog>
-
+            <DialogComponent isOpenModal={isOpenModal} setIsOpenModal={() => setIsOpenModal()} add={(title) => add(title)}/>
+            <dialog className={styles.overlay}  open={isOpenModal}/>
             <header>
                 <span>{tasks.length} tasks</span>
                 <div>

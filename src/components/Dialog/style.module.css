@@ -9,8 +9,22 @@
     border-radius: 8px;
     border: none;
     color: var(--font-color);
-    backdrop-filter: blur(10px);
+    z-index: 5;
 }
+
+
+/* .overlay {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+
+} */
 
 .dialog form {
     position: relative;
@@ -54,12 +68,6 @@
     color: var(--font-color);
 }
 
-.dialog[open]:fullscreen {
-
-    background-color: rgba(0, 0, 0, 1);
-    
-}
-
 .button {
     padding: 8px 12px;
     background-color: #27BE51;
@@ -72,3 +80,4 @@
 .button:hover {
     filter: brightness(0.9);
 }
+
